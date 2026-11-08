@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#061b18">
+    <meta name="description" content="Celebrate Christmas and New Year with Christmas Wonderland.">
+    <link rel="shortcut icon" href="christmas-tree.jpg" type="image/x-icon">
+    <title>Christmas Wonderland 🎄</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css" integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+
+    <!-- SNOW AND FIREWORKS -->
+    <div id="snow-container"></div>
+    <canvas id="fireworks-canvas"></canvas>
+
+    <!-- NAVIGATION -->
+    <header>
+        <h2 class="logo">🎄 Christmas Wonderland</h2>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#christmas">Christmas</a>
+            <a href="#newyear">New Year</a>
+            <a href="#gifts">Gifts</a>
+        </nav>
+    </header>
+
+    <!-- CHRISTMAS MUSIC PLAYER -->
+    <div class="music-player">
+        <button id="musicToggle" aria-label="Play Christmas music">
+            ▶
+        </button>
+        <span id="musicStatus">Play Christmas Music 🎵</span>
+
+        <audio id="christmasMusic" loop>
+            <source src="christmas-music.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero" id="home">
+            <p class="subtitle">✨ THE MOST WONDERFUL TIME OF THE YEAR ✨</p>
+            <h1>Christmas & New Year</h1>
+            <p class="description">
+                A season full of magic, happiness, love and new beginnings.
+            </p>
+            <!-- SVG CHRISTMAS TREE -->
+            <div class="tree-container">
+                <svg viewBox="0 0 300 350"
+                     class="christmas-tree"
+                     xmlns="http://www.w3.org/2000/svg">
+
+                    <!-- STAR -->
+                    <path d="M150 8 L160 34 L188 35 L166 53
+                             L174 80 L150 64 L126 80 L134 53
+                             L112 35 L140 34 Z"
+                          fill="#FFD700"
+                          stroke="#FFF3A3"
+                          stroke-width="2"/>
+
+                    <!-- TREE -->
+                    <path d="M150 55 L75 155 L110 155 L48 225
+                             L105 225 L30 295 L270 295
+                             L195 225 L252 225 L190 155
+                             L225 155 Z"
+                          fill="#0B7545"
+                          stroke="#1CA568"
+                          stroke-width="4"
+                          stroke-linejoin="round"/>
+
+                    <!-- TRUNK -->
+                    <path d="M130 290 L170 290 L177 340
+                             L123 340 Z"
+                          fill="#8B4513"/>
+
+                    <!-- DECORATIONS -->
+                    <circle cx="130" cy="145" r="7" fill="#FF4D6D"/>
+                    <circle cx="175" cy="155" r="7" fill="#FFD700"/>
+                    <circle cx="100" cy="210" r="7" fill="#4DD9FF"/>
+                    <circle cx="195" cy="210" r="7" fill="#FF4D6D"/>
+                    <circle cx="150" cy="190" r="8" fill="#FFD700"/>
+                    <circle cx="125" cy="255" r="8" fill="#FFD700"/>
+                    <circle cx="180" cy="260" r="8" fill="#4DD9FF"/>
+                    <circle cx="150" cy="285" r="7" fill="#FF4D6D"/>
+
+                    <!-- GARLAND -->
+                    <path d="M105 155 Q150 180 195 155
+                             M75 225 Q150 250 225 225
+                             M50 280 Q150 305 250 280"
+                          fill="none"
+                          stroke="#FFD700"
+                          stroke-width="3"
+                          stroke-linecap="round"/>
+                </svg>
+            </div>
+
+            <p class="tree-message">
+                May your days be merry and bright! ✨
+            </p>
+        </section>
+
+        <!-- CHRISTMAS COUNTDOWN -->
+        <section class="countdown-section" id="christmas">
+            <h2>🎅 Christmas Countdown</h2>
+            <p>Counting down to December 25!</p>
+
+            <div class="countdown">
+                <div class="time-box">
+                    <span id="christmas-days">00</span>
+                    <small>Days</small>
+                </div>
+
+                <div class="time-box">
+                    <span id="christmas-hours">00</span>
+                    <small>Hours</small>
+                </div>
+
+                <div class="time-box">
+                    <span id="christmas-minutes">00</span>
+                    <small>Minutes</small>
+                </div>
+
+                <div class="time-box">
+                    <span id="christmas-seconds">00</span>
+                    <small>Seconds</small>
+                </div>
+            </div>
+
+            <p class="holiday-message" id="christmas-message"></p>
+        </section>
+
+        <!-- NEW YEAR COUNTDOWN -->
+        <section class="countdown-section new-year" id="newyear">
+            <h2>🎆 New Year Countdown</h2>
+            <p>Counting down to January 1!</p>
+
+            <div class="countdown">
+                <div class="time-box">
+                    <span id="newyear-days">00</span>
+                    <small>Days</small>
+                </div>
+
+                <div class="time-box">
+                    <span id="newyear-hours">00</span>
+                    <small>Hours</small>
+                </div>
+
+                <div class="time-box">
+                    <span id="newyear-minutes">00</span>
+                    <small>Minutes</small>
+                </div>
+
+                <div class="time-box">
+                    <span id="newyear-seconds">00</span>
+                    <small>Seconds</small>
+                </div>
+            </div>
+
+            <p class="holiday-message" id="newyear-message"></p>
+        </section>
+
+        <!-- CHRISTMAS GIFTS -->
+        <section class="gifts-section" id="gifts">
+            <h2>🎁 A Little Christmas Surprise</h2>
+            <p>Choose a gift and discover your surprise!</p>
+
+            <div class="gifts-container">
+
+                <!-- GIFT 1 -->
+                <div class="gift" onclick="openGift(0)">
+                    <div class="gift-box red">
+                        <div class="gift-lid"></div>
+                        <div class="gift-ribbon"></div>
+                        <div class="gift-bow">🎀</div>
+                    </div>
+                    <span>Gift 1</span>
+                </div>
+
+                <!-- GIFT 2 -->
+                <div class="gift" onclick="openGift(1)">
+                    <div class="gift-box green">
+                        <div class="gift-lid"></div>
+                        <div class="gift-ribbon"></div>
+                        <div class="gift-bow">🎀</div>
+                    </div>
+                    <span>Gift 2</span>
+                </div>
+
+                <!-- GIFT 3 -->
+                <div class="gift" onclick="openGift(2)">
+                    <div class="gift-box gold">
+                        <div class="gift-lid"></div>
+                        <div class="gift-ribbon"></div>
+                        <div class="gift-bow">🎀</div>
+                    </div>
+                    <span>Gift 3</span>
+                </div>
+
+            </div>
+
+            <div id="gift-message" class="gift-message">
+                ✨ Your surprise is waiting!
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Made with ❤️ and Christmas Magic 🎄</p>
+        <p>© 2026 Winter Wonderland. All rights reserved.</p>
+    </footer>
+
+    <!-- BACK TO TOP -->
+    <button id="backToTop" title="Back to Top" aria-label="Back to top">↑</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
